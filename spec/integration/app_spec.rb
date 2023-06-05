@@ -2,6 +2,9 @@ require "spec_helper"
 require "rack/test"
 require_relative '../../app'
 require 'json'
+require 'database_connection'
+
+establish_connection
 
 describe Application do
   # This is so we can use rack-test helper methods.
