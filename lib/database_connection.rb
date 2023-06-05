@@ -7,9 +7,20 @@
 
 require 'pg'
 require 'rainbow/refinement'
+require 'active_record'
 
 class DatabaseConnection
   using Rainbow
+
+  def establish_database_connection
+    ActiveRecord::Base.establish_connection(
+      adapter: 'postgresql',
+      host: 'localhost',
+      port: '5432',
+      database: 'makersbnb_test',
+    )
+  end
+
 
   def self.connect(database_name)
     @host = '127.0.0.1'
