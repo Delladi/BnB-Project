@@ -4,7 +4,7 @@ require_relative '../../app'
 require 'json'
 require 'database_connection'
 
-establish_connection
+establish_database_connnection
 
 describe Application do
   # This is so we can use rack-test helper methods.
