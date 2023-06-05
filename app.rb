@@ -25,4 +25,9 @@ class Application < Sinatra::Base
   get '/bookings' do
     return erb(:bookings)
   end
+
+
+  get '/1' do
+    return erb(:stylish_cottage_getaway)
+  end
 end
