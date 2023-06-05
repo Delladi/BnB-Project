@@ -2,9 +2,9 @@ require "spec_helper"
 require "rack/test"
 require_relative '../../app'
 require 'json'
-require 'database_connection'
+# require 'database_connection'
 
-establish_database_connnection
+# establish_database_connnection
 
 describe Application do
   # This is so we can use rack-test helper methods.
@@ -26,6 +26,7 @@ describe Application do
       response = get('/')
 
       expect(response.status).to eq(200)
+      expect(response.body).to include('Listings')
     end
   end
 end
