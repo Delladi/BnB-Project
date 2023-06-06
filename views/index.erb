@@ -3,12 +3,88 @@
 <head>
     <title>MakersBnB</title>
     <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            text-align: center;
+        }
+        .link-container {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .image-container {
+            display: block;
+            width: 200px; /* Adjust this value to your desired width */
+            height: 200px; /* Adjust this value to your desired height */
+            margin-bottom: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .center-table {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>MakersBNB - Unique accommodation worldwide</h1>
-    <div><a href="http://localhost:9292/login">Login</a></div>
-    <div><a href="http://localhost:9292/signup">Signup</a></div>
-    <h2>Listings</h2>
-    <h3><a href="http://localhost:9292/1">Stylish cottage getaway</a></h3>
+    <h1>MakersBNB</h1>
+    <h2>Unique Accommodation Worldwide</h2>
+    <div class="link-container"><a href="http://localhost:9292/login">Login</a></div>
+    <div class="link-container"><a href="http://localhost:9292/signup">Signup</a></div>
+    <div class="link-container"><a href="http://localhost:9292/bookings">Bookings</a></div>
+    <div class="link-container"><a href="http://localhost:9292/listings">Listings</a></div>
+    <h3>Listings</h3>
+
+    <table class="center-table">
+        <tr>
+            <th>Cottages</th>
+            <th>Mansions</th>
+            <th>Glamping</th>
+        </tr>
+        <tr>
+            <td>
+                <div class="image-container">
+                    <img src="https://www.southernliving.com/thmb/A1aK1Xdv7iQbZ5UdiBioQml4lhQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/2270901_cainc0259_1-2000-36b6699219454ee298de1d4565f1ab7d.jpg" alt="Listing 2">
+                </div>
+                <h4><a href="http://localhost:9292/1">Stylish cottage getaway</a></h4>
+            </td>
+            <td>
+                <div class="image-container">
+                    <img src="https://cdn.luxatic.com/wp-content/uploads/2021/03/Uluwatu-House-by-SAOTA.jpg" alt="Listing 3">
+                </div>
+                <h4><a href="http://localhost:9292/2">Luxurious oceanfront villa</a></h4>
+            </td>
+            <td>
+                <div class="image-container">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/19/79/00/87/tamar-safari-tent-with.jpg" alt="Listing 4">
+                </div>
+                <h4><a href="http://localhost:9292/3">Secluded safari tent experience</a></h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="image-container">
+                    <img src="https://example.com/path/to/image4.jpg" alt="Listing 5">
+                </div>
+                <h4><a href="http://localhost:9292/4">Charming countryside cottage</a></h4>
+            </td>
+            <td>
+                <div class="image-container">
+                    <img src="https://example.com/path/to/image5.jpg" alt="Listing 6">
+                </div>
+                <h4><a href="http://localhost:9292/5">Modern urban loft</a></h4>
+            </td>
+            <td>
+                <div class="image-container">
+                    <img src="https://example.com/path/to/image6.jpg" alt="Listing 7">
+                </div>
+                <h4><a href="http://localhost:9292/6">Cozy mountain cabin</a></h4>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

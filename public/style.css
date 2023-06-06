@@ -1,3 +1,61 @@
+/* Apply general styles to the body */
 body {
-    font-size: 18px;
-}
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: rgb(250, 184, 184);
+  }
+  
+  /* Style the h1 heading */
+  h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Style the navigation links */
+  div {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  div a {
+    display: block;
+    padding: 40px;
+    text-decoration: none;
+    color: #333;
+    background-color: #d4d4d4;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  div a:hover {
+    background-color: #c5524c;
+  }
+  
+  /* Style the h2 and h3 headings */
+  h2 {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+
+  h3 {
+    font-size: 25px;
+    margin-top: 30px;
+  }
+
+  h4 {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  
+  h4 a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  h4 a:hover {
+    text-decoration: underline;
+    color: #6a6a6a;
+  }
+  

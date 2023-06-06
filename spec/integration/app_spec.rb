@@ -29,4 +29,49 @@ describe Application do
       expect(response.body).to include('Listings')
     end
   end
+
+  context 'GET /signup' do
+    it 'should get signup' do
+      response = get('/signup')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Sign Up')
+    end
+  end
+
+  context 'GET /login' do
+    it 'should get login' do
+      response = get('/login')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Login')
+    end
+  end
+
+  context 'GET /bookings' do
+    it 'should get bookings' do
+      response = get('/bookings')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Booking')
+    end
+  end
+
+  context 'GET /listings' do
+    it 'should get listings' do
+      response = get('/listings')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Listings')
+    end
+  end
+
+  context 'GET /1' do
+    it 'should get stylish cottage getaway page ' do
+      response = get('/1')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('Stylish Cottage Getaway')
+    end
+  end
 end
