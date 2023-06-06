@@ -12,7 +12,7 @@ require 'active_record'
 class DatabaseConnection
   using Rainbow
 
-  def establish_database_connection
+  def self.establish_database_connection
     ActiveRecord::Base.establish_connection(
       adapter: 'postgresql',
       host: 'localhost',

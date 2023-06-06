@@ -1,6 +1,6 @@
 ENV['ENV'] = 'test'
 
-require 'database_connection'
+require_relative '../lib/database_connection'
 
 DatabaseConnection.establish_database_connection
 
