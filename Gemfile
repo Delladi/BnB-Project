@@ -15,3 +15,4 @@ gem "rspec", "~> 3.11"
 gem "rainbow", "~> 3.1"
 
 gem "activerecord"
+gem "bcrypt"
