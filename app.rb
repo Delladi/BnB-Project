@@ -43,6 +43,11 @@ class Application < Sinatra::Base
     return erb(:login)
   end
 
+  get '/logout' do
+    session.clear  
+    redirect '/' 
+  end
+
   get '/account_page' do
     return erb(:account_page)
   end
