@@ -1,11 +1,12 @@
 require 'active_record'
 require_relative 'database_connection'
 require 'bcrypt'
+
 DatabaseConnection.establish_database_connection
 
 class User < ActiveRecord::Base
   has_many :bookings
-  has_many :listings
+  has_many :listings 
 
   def self.all_records
     @users = []
