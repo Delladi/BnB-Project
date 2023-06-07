@@ -19,6 +19,14 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  set :public_folder, File.join(__dir__, 'public')
+
+  get '/style.css' do
+    content_type 'text/css'
+    send_file File.join(settings.public_folder, 'style.css')
+  end
+
+
   get '/' do
     return erb(:index)
   end
@@ -122,6 +130,8 @@ class Application < Sinatra::Base
   get '/success' do
     return erb(:success)
   end
+
+  run! if app_file == $0
 end
 
 
