@@ -8,7 +8,7 @@ require_relative 'lib/listing'
 DatabaseConnection.establish_database_connection
 
 class Application < Sinatra::Base
-  UPLOADS_DIRECTORY = File.join(__dir__, 'img')
+  UPLOADS_DIRECTORY = File.join(__dir__, 'public/img')
   enable :sessions
 
   configure do
@@ -86,7 +86,7 @@ class Application < Sinatra::Base
     end
   end
   
-  post '/listing_id/bookings' do
+  post '/bookings' do
     booking = Booking.booking(
       params[:date_from],
       params[:date_to],
@@ -128,9 +128,8 @@ class Application < Sinatra::Base
       params[:location],
       session[:user_id]
     )
-  
-    # Send a response indicating success
-    'Listing created successfully.'
+
+    redirect '/success'
   
     # Save the uploaded image file to the designated directory
     listing_id = listing.id
@@ -141,6 +140,7 @@ class Application < Sinatra::Base
       file.write(tempfile.read)
     end
   end
+
   # get '/1' do
   #   return erb(:stylish_cottage_getaway)
   # end
