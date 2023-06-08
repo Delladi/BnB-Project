@@ -86,6 +86,11 @@ class Application < Sinatra::Base
     end
   end
 
+  get '/listings' do
+    @listings = Listing.all
+    return erb(:listings)
+  end
+
   get '/create_listings' do
     if session[:user_id] == nil
       redirect '/login'
