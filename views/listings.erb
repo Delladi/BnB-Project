@@ -33,9 +33,9 @@
 <body>
 <h1>Listings</h1>
     <div class="image-container">
-        <% @listings.each do |listing| %>
+        <% @all_listings.each do |listing| %>
             <div>
-            <a href="http://localhost:9292/<%= listing.id %>">
+            <a href="http://localhost:9292/listings/<%= listing.id %>">
                 <img src="./img/<%= listing.id %>.jpeg"></a>
                 <div class="image-details">
                     <%= listing.listing_name %><br>
