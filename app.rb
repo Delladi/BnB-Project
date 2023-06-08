@@ -128,14 +128,19 @@ class Application < Sinatra::Base
       file.write(tempfile.read)
     end
   end
-  get '/1' do
-    return erb(:stylish_cottage_getaway)
-  end
+  # get '/1' do
+  #   return erb(:stylish_cottage_getaway)
+  # end
 
   get '/success' do
     return erb(:success)
   end
 
+  get '/listings/:id' do
+    @listing = Listing.find_by(id: params[:id])
+    erb(:listing_template)
+  end
+  
   run! if app_file == $0
 end
 
