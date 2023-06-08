@@ -8,7 +8,7 @@ require_relative 'lib/listing'
 DatabaseConnection.establish_database_connection
 
 class Application < Sinatra::Base
-  UPLOADS_DIRECTORY = File.join(__dir__, 'img')
+  UPLOADS_DIRECTORY = File.join(__dir__, 'public/img')
   enable :sessions
 
   configure do
@@ -38,7 +38,54 @@ class Application < Sinatra::Base
     # Code for handling signup
   end
 
+<<<<<<< HEAD
   # Rest of the routes...
+=======
+  get '/login' do
+    return erb(:login)
+  end
+
+  get '/logout' do
+    session.clear  
+    redirect '/' 
+  end
+
+  get '/account_page' do
+    return erb(:account_page)
+  end
+
+  post '/login' do
+    user = User.sign_in(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/account_page'
+    else
+      redirect '/login_failure'
+    end
+  end
+
+  get '/bookings' do
+    if session[:user_id] == nil
+      #session - a gem that stores user information
+      redirect '/login'
+    else
+      return erb(:bookings)
+    end
+  end
+  
+  post '/bookings' do
+    booking = Booking.booking(
+      params[:date_from],
+      params[:date_to],
+      params[:price_total],
+      session[:listing_id],
+      session[:user_id]
+    )
+  
+    # Send a response indicating success
+    'Listing created successfully.'
+  end
+>>>>>>> 011904eef56621344bcb843ebd747c70a0e14602
 
   get '/listings' do
     @all_listings = Listing.all
@@ -50,10 +97,44 @@ class Application < Sinatra::Base
   end
 
   post '/create_listings' do
+<<<<<<< HEAD
     # Code for creating listings and saving images
   end
 
   # Rest of the routes...
+=======
+    # Access the uploaded image file using params[:image]
+    if params[:image].nil? || params[:image][:tempfile].nil?
+      # Handle error if no file is uploaded
+      return 'No file uploaded.'
+    end
+  
+    # Handle the rest of the form data and image processing/saving
+    listing = Listing.create_listing(
+      params[:listing_name],
+      params[:available_from],
+      params[:available_to],
+      params[:price_per_night],
+      params[:location],
+      session[:user_id]
+    )
+
+    redirect '/success'
+  
+    # Save the uploaded image file to the designated directory
+    listing_id = listing.id
+    user_id = params[:user_id]
+    filename = "#{listing_id}.#{params[:image][:filename].split('.').last}"
+    tempfile = params[:image][:tempfile]
+    File.open(File.join(UPLOADS_DIRECTORY, filename), 'wb') do |file|
+      file.write(tempfile.read)
+    end
+  end
+
+  # get '/1' do
+  #   return erb(:stylish_cottage_getaway)
+  # end
+>>>>>>> 011904eef56621344bcb843ebd747c70a0e14602
 
   get '/success' do
     erb :success

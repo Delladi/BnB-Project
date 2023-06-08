@@ -11,13 +11,13 @@ class Listing < ActiveRecord::Base
 
   def self.all_listings
     Listing.joins(:user).map do |listing|
-      @listings << "#{listing.user.name} #{listing.listing_name} #{listing.availible_from} #{listing.availible_to} #{listing.price_per_night} #{listing.location}"
+      @listings << "#{listing.user.name} #{listing.listing_name} #{listing.available_from} #{listing.available_to} #{listing.price_per_night} #{listing.location}"
     end
     @listings
   end
 
   def self.create_listing(listing_name, available_from, available_to, price_per_night, location, user_id)
-    listing = Listing.new(listing_name: listing_name, availible_from: availible_from, availible_to: availible_to, price_per_night: price_per_night, location: location, user_id: user_id)
+    listing = Listing.new(listing_name: listing_name, available_from: available_from, available_to: available_to, price_per_night: price_per_night, location: location, user_id: user_id)
     listing.save
     listing
   end
