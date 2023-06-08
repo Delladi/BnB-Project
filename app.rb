@@ -85,6 +85,19 @@ class Application < Sinatra::Base
       return erb(:bookings)
     end
   end
+  
+  post '/listing_id/bookings' do
+    booking = Booking.booking(
+      params[:date_from],
+      params[:date_to],
+      params[:price_total],
+      session[:listing_id],
+      session[:user_id]
+    )
+  
+    # Send a response indicating success
+    'Listing created successfully.'
+  end
 
   get '/listings' do
     @listings = Listing.all
