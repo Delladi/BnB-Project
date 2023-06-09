@@ -38,9 +38,7 @@ class Application < Sinatra::Base
     # Code for handling signup
   end
 
-<<<<<<< HEAD
-  # Rest of the routes...
-=======
+  # Rest of the routes..
   get '/login' do
     return erb(:login)
   end
@@ -85,7 +83,6 @@ class Application < Sinatra::Base
     # Send a response indicating success
     'Listing created successfully.'
   end
->>>>>>> 011904eef56621344bcb843ebd747c70a0e14602
 
   get '/listings' do
     @all_listings = Listing.all
@@ -97,12 +94,11 @@ class Application < Sinatra::Base
   end
 
   post '/create_listings' do
-<<<<<<< HEAD
+
     # Code for creating listings and saving images
-  end
+
 
   # Rest of the routes...
-=======
     # Access the uploaded image file using params[:image]
     if params[:image].nil? || params[:image][:tempfile].nil?
       # Handle error if no file is uploaded
@@ -134,7 +130,6 @@ class Application < Sinatra::Base
   # get '/1' do
   #   return erb(:stylish_cottage_getaway)
   # end
->>>>>>> 011904eef56621344bcb843ebd747c70a0e14602
 
   get '/success' do
     erb :success
