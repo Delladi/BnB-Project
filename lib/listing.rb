@@ -7,7 +7,7 @@ DatabaseConnection.establish_database_connection
 class Listing < ActiveRecord::Base
   belongs_to :user
   
-   @@listings = []
+    @listings = []
 
   def self.all_listings
     Listing.joins(:user).map do |listing|

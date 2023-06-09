@@ -110,7 +110,6 @@ class Application < Sinatra::Base
       params[:price_per_night],
       params[:description],
       params[:location],
-      params[:description],
       session[:user_id]
     )
 
