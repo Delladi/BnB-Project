@@ -3,6 +3,26 @@
   <head>
         <title>Login</title>
         <link rel="stylesheet" href="/style.css" >
+        <style>
+              body {
+                  text-align: center;
+              }
+
+              div {
+                font-size: 30px;
+              }
+
+              .box {
+                  width: 600px; /* set the width to 200 pixels */
+                  height: 40px; /* set the height to 150 pixels */
+              }
+
+              .button {
+                  width: 120px;
+                  height: 55px;
+                  margin-left: 475px;
+              }
+        </style>
   </head>
 
   <body>
@@ -10,10 +30,13 @@
     <div>Please log in below</div>
     <div><form action="/login" method="POST">
     <div>Username</div>
-    <input type="text" name="username">
+    <input class="box" type="text" name="username">
+    <br>
     <div>Password</div>
-    <input type="password" name="password">
-    <input type="submit" value="Login">
+    <input class="box" type="password" name="password">
+    <br>
+    <br>
+    <input class="button" type="submit" value="Login">
   </body>
 </html>
 

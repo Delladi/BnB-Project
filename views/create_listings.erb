@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Listings</title>
+        <link rel="stylesheet" href="style.css" >
+        <style>
+              body {
+                  text-align: center;
+              }
+
+              div {
+                font-size: 20px;
+              }
+
+              .box {
+
+                width: 600px;
+                height: 30px;
+              }
+
+              .description_box {
+
+                width: 600px;
+                height: 200px;
+
+              }
+              .upload_button {
+                width: 120px;
+                height: 55px;
+              }
+            
+            .create_listing_button {
+              width: 120px;
+              height: 55px;
+              margin-left: 490px;
+            }
+        </style>
+    </head>
+  <body>
+    <h1>Welcome to the Listings Page</h1>
+    <div>Please create your listings below</div>
+    <form action="/create_listings" method="POST" enctype="multipart/form-data">
+        <div>Listing</div>
+        <input class="box" type="text" name="listing_name">
+        <div>Available From</div>
+        <input class="box" type="date" name="available_from">
+        <div>Available To</div>
+        <input class="box" type="date" name="available_to">
+        <div>Price Per Night (£)</div>
+        <input class="box" type="number" name="price_per_night">
+        <div>Location</div>
+        <input class="box" type="text" name="location">
+        <div>Description</div>
+        <input class="description_box" type="text" name="description">
+        <div>Image</div>
+        <input class="box" type="file" name="image">
+        <br>
+        <input class="create_listing_button" type="submit" value="Create Listing">
+    </form>
+  </body>
+</html>
+<!-- user.name, listing_name, available_from , Available_to, price_per_night, location,-->

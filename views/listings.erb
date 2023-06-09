@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Listings</title>
-        <link rel="stylesheet" href="/style.css" >
-    </head>
-    <body>
-        <h1>Welcome to the Listings Page</h1>
-        <div>Please create your listings below</div>
-        <div><form action="/signup" method="POST">
+<head>
+    <title>Listings</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            text-align: center;
+        }
+        .link-container {
+            display: inline-block;
+            margin-right: 10px;
+        }
 
-        <div>Name</div>
-        <input type="text" name="name">
-        <div>User Name</div>
-        <input type="text" user.name="user name">
-        <div>Listing</div>
-        <input type="text" listing_name="listing_name">
-        <div>Available From</div>
-        <input type="date" available_from="available_from">
-        <div>Available To</div>
-        <input type="date" available_to="available_to">
-        <div>Price Per Night (£)</div>
-        <input type="number" price_per_night="price_per_night">
-        <div>Location</div>
-        <input type="text" location="location">
-        <input type="submit" value="Create Listing">
-    </body>
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .image-container img {
+            width: 300px; /* Adjust this value to your desired width */
+            height: 200px; /* Adjust this value to your desired height */
+            object-fit: cover;
+        }
+
+        .image-details {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Listings</h1>
+    <div class="image-container">
+        <% @all_listings.each do |listing| %>
+            <div>
+            <a href="http://localhost:9292/listings/<%= listing.id %>">
+                <img src="./img/<%= listing.id %>.jpeg"></a>
+                <div class="image-details">
+                    <%= listing.listing_name %><br>
+                    <%= "Available from: #{listing.available_from} Available to: #{listing.available_to}" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</body>
 </html>
-
-<!-- user.name, listing_name, available_from , Available_to, price_per_night, location,-->
