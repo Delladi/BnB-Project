@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'active_record'
+require_relative 'lib/booking'
 require_relative 'lib/database_connection'
 require_relative 'lib/user'
 require_relative 'lib/listing'
@@ -62,24 +63,26 @@ class Application < Sinatra::Base
     end
   end
 
-  get '/bookings' do
+  get '/listings/:id/bookings' do
     if session[:user_id] == nil
       #session - a gem that stores user information
       redirect '/login'
     else
+      @listing = Listing.find_by(id: params[:id])
       return erb(:bookings)
     end
   end
   
-  post '/bookings' do
-    booking = Booking.booking(
+  post '/listings/:id/bookings' do
+    @listing = Listing.find_by(id: params[:id])
+    binding.irb
+    booking = Booking.create_booking(
+
       params[:date_from],
       params[:date_to],
-      params[:price_total],
-      session[:listing_id],
+      params[:id],
       session[:user_id]
     )
-  
     # Send a response indicating success
     'Listing created successfully.'
   end
@@ -112,10 +115,10 @@ class Application < Sinatra::Base
       params[:available_to],
       params[:price_per_night],
       params[:location],
+      params[:description],
       session[:user_id]
     )
 
-    redirect '/success'
   
     # Save the uploaded image file to the designated directory
     listing_id = listing.id
@@ -125,13 +128,14 @@ class Application < Sinatra::Base
     File.open(File.join(UPLOADS_DIRECTORY, filename), 'wb') do |file|
       file.write(tempfile.read)
     end
+    redirect '/account_page/success'
   end
 
   # get '/1' do
   #   return erb(:stylish_cottage_getaway)
   # end
 
-  get '/success' do
+  get '/account_page/success' do
     erb :success
   end
 

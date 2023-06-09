@@ -16,8 +16,8 @@ class Listing < ActiveRecord::Base
     @listings
   end
 
-  def self.create_listing(listing_name, available_from, available_to, price_per_night, location, user_id)
-    listing = Listing.new(listing_name: listing_name, available_from: available_from, available_to: available_to, price_per_night: price_per_night, location: location, user_id: user_id)
+  def self.create_listing(listing_name, available_from, available_to, price_per_night, description, location, user_id)
+    listing = Listing.new(listing_name: listing_name, available_from: available_from, available_to: available_to, price_per_night: price_per_night, description: description, location: location, user_id: user_id)
     listing.save
     listing
   end

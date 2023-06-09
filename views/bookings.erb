@@ -13,13 +13,14 @@
 <body>
   <h1>Welcome to the Booking Page</h1>
   <div>Please choose your booking below</div>
-  <form action="/bookings" method="POST">
+  <div><%= @listing.listing_name %></div><br>
+  <form action="/listings/<%= @listing.id %>/bookings" method="POST">
   <div>Date From</div>
-  <input type="date" date_from="date_from">
+  <input type="date" name="date_from">
   <div>Date To</div>
-  <input type="date" date_to="date_to">
+  <input type="date" name="date_to">
   <div>Price Total</div>
-  <input type="number" price_total="price_total">
+  <input type="number" name="price_total">
   <br>
   <input type="submit" value="Make Booking">
   </form>
