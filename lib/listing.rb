@@ -11,7 +11,7 @@ class Listing < ActiveRecord::Base
 
   def self.all_listings
     Listing.joins(:user).map do |listing|
-      @listings << "#{listing.user.name} #{listing.listing_name} #{listing.available_from} #{listing.available_to} #{listing.price_per_night} #{listing.location}"
+      @listings << "#{listing.user.name} #{listing.listing_name} #{listing.available_from} #{listing.available_to} #{listing.price_per_night} #{listing.description} #{listing.location}"
     end
     @listings
   end

@@ -39,7 +39,6 @@ class Application < Sinatra::Base
     # Code for handling signup
   end
 
-  # Rest of the routes..
   get '/login' do
     return erb(:login)
   end
@@ -97,11 +96,6 @@ class Application < Sinatra::Base
   end
 
   post '/create_listings' do
-
-    # Code for creating listings and saving images
-
-
-  # Rest of the routes...
     # Access the uploaded image file using params[:image]
     if params[:image].nil? || params[:image][:tempfile].nil?
       # Handle error if no file is uploaded
@@ -114,6 +108,7 @@ class Application < Sinatra::Base
       params[:available_from],
       params[:available_to],
       params[:price_per_night],
+      params[:description],
       params[:location],
       params[:description],
       session[:user_id]
