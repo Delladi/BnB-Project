@@ -72,18 +72,19 @@ class Application < Sinatra::Base
     end
   end
   
+
   post '/listings/:id/bookings' do
-    @listing = Listing.find_by(id: params[:id])
-    binding.irb
-    booking = Booking.create_booking(
+    @booking = Booking.create_booking(
 
       params[:date_from],
       params[:date_to],
       params[:id],
       session[:user_id]
+
     )
+    
     # Send a response indicating success
-    'Listing created successfully.'
+    'Booking created successfully.'
   end
 
   get '/listings' do

@@ -18,18 +18,18 @@ class Booking < ActiveRecord::Base
   end
 
   def self.create_booking(date_from, date_to, listing_id, user_id)
-    price_total = calculate_price_total(listing_id, date_from, date_to)
+    price_total = Booking.calculate_price_total(date_from, date_to, listing_id)
     booking = Booking.new(date_from: date_from, date_to: date_to, price_total: price_total, listing_id: listing_id, user_id: user_id)
     booking.save
     booking
   end
-
-  def self.calculate_price_total(listing_id, date_from, date_to)
-    listing = Listing.find(listing_id)
-
-    date1 = Date.parse(listing.date_from)
-    date2 = Date.parse(listing.date_to)
+  def self.calculate_price_total(date_from, date_to, id)
+    listing = Listing.find(id)
+    date1 = Date.parse(date_from)
+    date2 = Date.parse(date_to)
     difference = (date2 - date1).to_i
     total = difference * listing.price_per_night
-  end  
+  end
 end
+  
+  
