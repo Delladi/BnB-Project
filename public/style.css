@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: rgb(250, 184, 184);
+    background-color: rgb(195, 250, 248);
     text-align: center;
   }
   
@@ -31,7 +31,7 @@ body {
   }
   
   div a:hover {
-    background-color: #c5524c;
+    background-color: #74d3ff;
   }
   
   /* Style the h2 and h3 headings */
